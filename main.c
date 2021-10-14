@@ -169,9 +169,9 @@ int main(int argc, char *argv[])
     
     /*         ### Para realizar um teste rápido, descomentar esse bloco e comentar o bloco anterior ####
     
-    for (int i = 0; i < 20000; i++) // Capta Pixel ORIGEM
+    for (int i = 0; i < tam; i++) // Capta Pixel ORIGEM
     {
-        for (int j = 0; j < 20000; j++) //Passar de pixel a pixel pela imagem de Saída
+        for (int j = 0; j < tam; j++) //Passar de pixel a pixel pela imagem de Saída
         {
             menor = distanciaRGB(pic[SAIDA].img[i].r,pic[DESEJ].img[j].r,pic[SAIDA].img[i].g,pic[DESEJ].img[j].g,pic[SAIDA].img[i].b,pic[DESEJ].img[j].b);             
             for (int count = 5; count > 0; count--) //Comparar novamente o pixel na pos I até encontrar o mais semelhante                
