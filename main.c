@@ -140,9 +140,22 @@ int main(int argc, char *argv[])
     // (ou chamar funcoes para fazer isso)
     //
     // Aplica o algoritmo e gera a saida em pic[SAIDA].img...
-    // ...
-    // ...    
-
+    for(int i = 0; i<tam; i++){
+        for(int j=0; j<tam; i++){
+            if(pic[SAIDA].img[i].r - pic[DESEJ].img[i].r > 20){
+                if(pic[SAIDA].img[j].r - pic[DESEJ].img[j].r > 20)
+                //se não satisfazer nenhuma posição
+                //verifica se satisfaria em uma suposta troca
+                if((pic[SAIDA].img[j].r - pic[DESEJ].img[i].r < 20) || (pic[SAIDA].img[i].r - pic[DESEJ].img[j].r > 20)){
+                    //se alguma delas satisfazer
+                    //faz a troca
+                    int aux = pic[SAIDA].img[i].r;
+                    pic[SAIDA].img[i].r = pic[SAIDA].img[j].r;
+                    pic[SAIDA].img[j].r = aux;
+                }
+            }
+        }
+    }
     // NÃO ALTERAR A PARTIR DAQUI!
 
     // Cria textura para a imagem de saída
