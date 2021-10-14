@@ -58,13 +58,13 @@ int sel;
 #define DESEJ 1
 #define SAIDA 2
 
+//Modo para comparação dos Pixels
 double distanciaRGB(int r1, int r2,int g1,int g2,int b1,int b2){
     int restoR = pow((r1-r2),2);
     int restoG = pow((g1-g2),2);
     int restoB = pow((b1-b2),2);
 
     return sqrt(restoR+restoG+restoB);
-
 }
 
 int main(int argc, char *argv[])
@@ -126,9 +126,7 @@ int main(int argc, char *argv[])
 
     srand(time(0)); // Inicializa gerador aleatório (se for usar random)
 
-    printf("Processando...\n");
-    int teste = 5*2;
-    printf("Teste: %d...\n",teste);
+    printf("Processando...\n");    
 
     // Copia imagem de origem na imagem de saída
     // (NUNCA ALTERAR A IMAGEM DE ORIGEM NEM DESEJADA)
@@ -141,39 +139,61 @@ int main(int argc, char *argv[])
     //
     // Aplica o algoritmo e gera a saida em pic[SAIDA].img...
 
-    // Seleciona Pixel de referência da imagem de Saida
-    //tamanho de teste inicial = 50000
-    for (int i = 0; i < 50000; i++) 
-        {   
-             //Passar de pixel a pixel pela imagem Desejada
-            for (int j = 0; j < 50000; j++)
+    // Váriavel auxiliar para aprimoramento
+    int menor=255;    
+
+    for (int i = 0; i < tam; i++) // Capta Pixel ORIGEM
+    {
+        for (int j = 0; j < tam; j++) //Passar de pixel a pixel pela imagem de Saída
+        {
+            menor = distanciaRGB(pic[SAIDA].img[i].r,pic[DESEJ].img[j].r,pic[SAIDA].img[i].g,pic[DESEJ].img[j].g,pic[SAIDA].img[i].b,pic[DESEJ].img[j].b);             
+            for (int count = 1000; count > 0; count--) //Comparar novamente o pixel na pos I até encontrar o mais semelhante                
             {
-                //Quanto menor a distanciaRGB, mais semelhante é a cor
-                //Cria um ponto 'menor' inicial
-                menor = distanciaRGB(pic[SAIDA].img[i].r,pic[DESEJ].img[j].r,pic[SAIDA].img[i].g,pic[DESEJ].img[j].g,pic[SAIDA].img[i].b,pic[DESEJ].img[j].b); 
-
-                //Comparar o pixel de maior semelhança, e atualiza caso o outro pixel seja mais semelhante
-                if (menor > distanciaRGB(pic[SAIDA].img[i].r,pic[DESEJ].img[j+1].r,pic[SAIDA].img[i].g,pic[DESEJ].img[j+1].g,pic[SAIDA].img[i].b,pic[DESEJ].img[j+1].b))
+                if (menor > distanciaRGB(pic[SAIDA].img[i].r,pic[DESEJ].img[j+1].r,pic[SAIDA].img[i].g,pic[DESEJ].img[j+1].g,pic[SAIDA].img[i].b,pic[DESEJ].img[j+1].b))                
                 {
-                    //atualiza o pixel mais semelhante
-                    menor = distanciaRGB(pic[SAIDA].img[i].r,pic[DESEJ].img[j+1].r,pic[SAIDA].img[i].g,pic[DESEJ].img[j+1].g,pic[SAIDA].img[i].b,pic[DESEJ].img[j+1].b);
-
-                    //faz a troca de posição
+                    //Realiza a troca dos pixels
+                    menor = distanciaRGB(pic[SAIDA].img[i].r,pic[DESEJ].img[j+1].r,pic[SAIDA].img[i].g,pic[DESEJ].img[j+1].g,pic[SAIDA].img[i].b,pic[DESEJ].img[j+1].b);                   
                     int auxR = pic[SAIDA].img[i].r;
                     pic[SAIDA].img[i].r = pic[SAIDA].img[j].r;
                     pic[SAIDA].img[j].r = auxR;
-
                     int auxG = pic[SAIDA].img[i].g;
                     pic[SAIDA].img[i].g = pic[SAIDA].img[j].g;
                     pic[SAIDA].img[j].g = auxG;
-
                     int auxB = pic[SAIDA].img[i].b;
                     pic[SAIDA].img[i].b = pic[SAIDA].img[j].b;
                     pic[SAIDA].img[j].b = auxB;
-                }
-            }
-        }
-
+                }                    
+            }                    
+        }            
+    }        
+    
+    /*         ### Para realizar um teste rápido, descomentar esse bloco e comentar o bloco anterior ####
+    
+    for (int i = 0; i < 20000; i++) // Capta Pixel ORIGEM
+    {
+        for (int j = 0; j < 20000; j++) //Passar de pixel a pixel pela imagem de Saída
+        {
+            menor = distanciaRGB(pic[SAIDA].img[i].r,pic[DESEJ].img[j].r,pic[SAIDA].img[i].g,pic[DESEJ].img[j].g,pic[SAIDA].img[i].b,pic[DESEJ].img[j].b);             
+            for (int count = 5; count > 0; count--) //Comparar novamente o pixel na pos I até encontrar o mais semelhante                
+            {
+                if (menor > distanciaRGB(pic[SAIDA].img[i].r,pic[DESEJ].img[j+1].r,pic[SAIDA].img[i].g,pic[DESEJ].img[j+1].g,pic[SAIDA].img[i].b,pic[DESEJ].img[j+1].b))                
+                {
+                    //Realiza a troca dos pixels
+                    menor = distanciaRGB(pic[SAIDA].img[i].r,pic[DESEJ].img[j+1].r,pic[SAIDA].img[i].g,pic[DESEJ].img[j+1].g,pic[SAIDA].img[i].b,pic[DESEJ].img[j+1].b);                   
+                    int auxR = pic[SAIDA].img[i].r;
+                    pic[SAIDA].img[i].r = pic[SAIDA].img[j].r;
+                    pic[SAIDA].img[j].r = auxR;
+                    int auxG = pic[SAIDA].img[i].g;
+                    pic[SAIDA].img[i].g = pic[SAIDA].img[j].g;
+                    pic[SAIDA].img[j].g = auxG;
+                    int auxB = pic[SAIDA].img[i].b;
+                    pic[SAIDA].img[i].b = pic[SAIDA].img[j].b;
+                    pic[SAIDA].img[j].b = auxB;
+                }                    
+            }                    
+        }            
+    }
+    */
     // NÃO ALTERAR A PARTIR DAQUI!
 
     // Cria textura para a imagem de saída
