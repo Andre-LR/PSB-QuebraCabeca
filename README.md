@@ -11,15 +11,15 @@ O algoritmo deverá reposicionar os pixels da primeira imagem (origem) para prod
 Exemplo:
 Imagem de Origem
 
-<img src = "https://github.com/bramos013/PSB-QuebraCabeca/blob/main/dali1.jpg" height = "150em" />
+<img src = "https://github.com/bramos013/PSB-QuebraCabeca/blob/main/dali2.jpg" height = "150em" />
 
 Imagem Desejada
 
-<img src = "https://github.com/bramos013/PSB-QuebraCabeca/blob/main/dali2.jpg" height = "150em" />
+<img src = "https://github.com/bramos013/PSB-QuebraCabeca/blob/main/dali1.jpg" height = "150em" />
 
 Imagem Resultado
 
-<img src = "https://github.com/bramos013/desafio-king/blob/main/images/out.bmp" height = "150em" />
+<img src = "https://github.com/bramos013/PSB-QuebraCabeca/blob/main/resultado.jpg" height = "150em" />
 
 ## Raciocínio 
 - A imagem de ORIGEM foi copiada para a imagem de SAIDA, a fim de que pudessemos manipular os pixels da SAIDA;
