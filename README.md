@@ -17,7 +17,7 @@ Imagem Desejada
 
 <img src = "https://github.com/bramos013/PSB-QuebraCabeca/blob/main/dali1.jpg" height = "150em" />
 
-Imagem Resultado
+Imagem Resultado(Em processamento)
 
 <img src = "https://github.com/bramos013/PSB-QuebraCabeca/blob/main/resultado.jpg" height = "150em" />
 
