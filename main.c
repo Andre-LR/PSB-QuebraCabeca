@@ -140,22 +140,45 @@ int main(int argc, char *argv[])
     // (ou chamar funcoes para fazer isso)
     //
     // Aplica o algoritmo e gera a saida em pic[SAIDA].img...
-    for(int i = 0; i<tam; i++){
-        for(int j=0; j<tam; i++){
-            if(pic[SAIDA].img[i].r - pic[DESEJ].img[i].r > 20){
-                if(pic[SAIDA].img[j].r - pic[DESEJ].img[j].r > 20)
-                //se não satisfazer nenhuma posição
+
+//Pegar 2 pixels aleatorios fazer trocas até bater 5 tentativas de trocas seguidas não bem sucessidas
+//Usando RGB completo
+ int count = 0;
+    do
+    {
+        int i = rand() % tam;
+        int j = rand() % tam;
+        
+        if(pic[SAIDA].img[i].r - pic[DESEJ].img[i].r > 20 || pic[SAIDA].img[i].g - pic[DESEJ].img[i].g > 20 || pic[SAIDA].img[i].b - pic[DESEJ].img[i].b > 20){
+            
+            if(pic[SAIDA].img[j].r - pic[DESEJ].img[j].r > 20 || pic[SAIDA].img[j].g - pic[DESEJ].img[j].g > 20 || pic[SAIDA].img[j].b - pic[DESEJ].img[j].b > 20){
+                //Se n satisfazer nenhuma posição
+
                 //verifica se satisfaria em uma suposta troca
-                if((pic[SAIDA].img[j].r - pic[DESEJ].img[i].r < 20) || (pic[SAIDA].img[i].r - pic[DESEJ].img[j].r > 20)){
-                    //se alguma delas satisfazer
-                    //faz a troca
-                    int aux = pic[SAIDA].img[i].r;
-                    pic[SAIDA].img[i].r = pic[SAIDA].img[j].r;
-                    pic[SAIDA].img[j].r = aux;
+                if(((pic[SAIDA].img[j].r - pic[DESEJ].img[i].r < 20) ||  (pic[SAIDA].img[i].r - pic[DESEJ].img[j].r > 20 )) ||
+                    ((pic[SAIDA].img[j].g - pic[DESEJ].img[i].g < 20) || (pic[SAIDA].img[i].g - pic[DESEJ].img[j].g > 20 )) ||
+                    ((pic[SAIDA].img[j].b - pic[DESEJ].img[i].b < 20) || (pic[SAIDA].img[i].r - pic[DESEJ].img[j].b > 20 )) ){
+                                
+                //se alguma delas satisfazer
+                //faz a troca
+                int auxR = pic[SAIDA].img[i].r;
+                pic[SAIDA].img[i].r = pic[SAIDA].img[j].r;
+                pic[SAIDA].img[j].r = auxR;
+
+                int auxG = pic[SAIDA].img[i].g;
+                pic[SAIDA].img[i].g = pic[SAIDA].img[j].g;
+                pic[SAIDA].img[j].g = auxG;
+
+                int auxB = pic[SAIDA].img[i].r;
+                pic[SAIDA].img[i].r = pic[SAIDA].img[j].r;
+                pic[SAIDA].img[j].r = auxB;
+                count = 0;
                 }
             }
+                // printf("\nPos I: %d J: %d",i,j);
         }
-    }
+        count++;   
+    } while (count < 5); 
     // NÃO ALTERAR A PARTIR DAQUI!
 
     // Cria textura para a imagem de saída
