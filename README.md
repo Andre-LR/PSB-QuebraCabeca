@@ -22,3 +22,8 @@ Imagem Resultado
 <img src = "https://github.com/bramos013/desafio-king/blob/main/images/out.bmp" height = "150em" />
 
 ## Raciocínio 
+1- A imagem de ORIGEM foi copiada para a imagem de SAIDA, a fim de que pudessemos manipular os pixels da SAIDA;
+2- Selecionamo um pixel da imagem de SAIDA para ser o ponto de referência da comparação;
+3- Para cada comparação de um Pixel de saída, verificamos a semelhança dele com 2 pixels da imagem DESEJADA através de DistanciaRGB;
+4- O pixel de SAIDA será posicionado na mesma posição do pixel da imagem DESEJADA que for mais semelhante com ele;
+5- A comparação é repetida 100 vezes a fim de deixar mais preciso o resultado da troca;
