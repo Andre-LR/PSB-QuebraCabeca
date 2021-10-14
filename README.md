@@ -38,4 +38,4 @@ Validando...
 >>>> TRANSFORMAÇÃO VÁLIDA <<<<< 
 
 
-OBS: O código leva um tempo para obter o resultado final. Usando os valores do bloco de código comentado, obtem-se resultados satisfatórios de maneira mais otimizada.
+OBS: O código com as imagens originais leva um tempo para obter o resultado final. Utilizando imagens com resoluções menores, obtem-se resultados satisfatórios de maneira mais otimizada.
