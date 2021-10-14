@@ -28,4 +28,14 @@ Imagem Resultado
 - O pixel de SAIDA será posicionado na mesma posição do pixel da imagem DESEJADA que for mais semelhante com ele, ou seja, o que tiver menor DistanciaRGB;
 - A comparação é repetida 1000 vezes a fim de deixar mais preciso o resultado da troca;
 
+## Validação
+Para fins de testes, utilizamos o método de validação e obteve-se o seguinte resultado:
+
+
+Validando...
+[04 01 0A] [04 01 0C] [05 02 0B] [05 02 0B] [05 02 0B] [05 02 0B] [05 02 0B] [05 02 0B] 
+[04 01 0A] [04 01 0C] [05 02 0B] [05 02 0B] [05 02 0B] [05 02 0B] [05 02 0B] [05 02 0B] 
+>>>> TRANSFORMAÇÃO VÁLIDA <<<<< 
+
+
 OBS: O código leva um tempo para obter o resultado final. Usando os valores do bloco de código comentado, obtem-se resultados satisfatórios de maneira mais otimizada.
