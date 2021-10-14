@@ -27,3 +27,5 @@ Imagem Resultado
 - Para cada comparação de um Pixel de ORIGEM, verificamos a semelhança dele com cada pixel da imagem DESEJADA através do método DistanciaRGB;
 - O pixel de SAIDA será posicionado na mesma posição do pixel da imagem DESEJADA que for mais semelhante com ele, ou seja, o que tiver menor DistanciaRGB;
 - A comparação é repetida 1000 vezes a fim de deixar mais preciso o resultado da troca;
+
+OBS: O código leva um tempo para obter o resultado final. Usando os valores do bloco de código comentado, obtem-se resultados satisfatórios de maneira mais otimizada.
