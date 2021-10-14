@@ -21,6 +21,23 @@ Imagem Resultado(Em processamento)
 
 <img src = "https://github.com/bramos013/PSB-QuebraCabeca/blob/main/resultado.jpg" height = "150em" />
 
+### Pesquisa
+
+Colorimetria é a ciência que investiga o fenômeno de percepção de cores pelos seres humanos. Em sua etimologia temos do latim COLOR (cor) e METRIA (medida) sugerindo que se trata da mensuração da temperatura da cor, seu grau de matiz, saturação e luminosidade.
+
+Na Colorimetria, o termo Espaço de Cores Absoluto corresponde a um espaço de cores em que a diferença de percepção entre as cores está diretamente relacionada com as distâncias entre as cores representadas por pontos no espaço de cores. 
+
+Para reposicionarmos os pixels de modo a ocuparem uma posição em que a cor da imagem de SAIDA é semelhante a da imagem DESEJADA, basicamente, devemos selecionar os pixels que possuem a menor diferença de cor possível. Para isso, temos que calcular uma métrica de distância, considerando as dimensões lineares R, G, B definindo o espaço de cores.
+
+Grande parte das definições usam a distância euclidiana para calcular essa métrica. Um dos melhores métodos para comparar duas cores pela percepção humana é o CIE76, que utiliza a fórmula abaixo, onde R, G e B correspondem às dimensões RGB de cada imagem. A diferença é chamada Delta-E, e uma curiosidade é que quando a diferença é menor que 1, o olho humano não consegue reconhecer a diferença.
+
+
+<p align=center>distância² = (R2 - R1)² +  (G2 - G1)² + (B2 - B1)²<p> 
+
+
+Essa métrica funcionará nos casos em que uma cor deve ser comparada a apenas uma outra cor simplesmente para saber a diferença(distância) entre elas. Quanto menor a distância, mais semelhantes elas são.
+
+
 ## Raciocínio 
 - A imagem de ORIGEM foi copiada para a imagem de SAIDA, a fim de que pudessemos manipular os pixels da SAIDA;
 - Selecionamos um pixel da imagem de SAIDA para ser o ponto de referência da comparação;
